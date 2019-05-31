@@ -5,6 +5,10 @@ import { Header } from './components/header';
 import { Home } from './components/home';
 
 class App extends React.Component {
+    onGreet() {
+        alert('Hello!');
+    };
+
     render() {
         return (
             <div className="container">
@@ -16,7 +20,7 @@ class App extends React.Component {
                 <br/>
                 <div className="row">
                     <div className="col-10 offset-1">
-                        <Home name={"Nghĩa"} initialAge={21}/>
+                        <Home name={"Nghĩa"} initialAge={21} greet={this.onGreet}/>
                     </div>
                 </div>
             </div>
