@@ -1,13 +1,21 @@
 import React from "react";
 import { render } from "react-dom";
 
+import { Header } from './components/header';
+import { Home } from './components/home';
+
 class App extends React.Component {
     render() {
         return (
             <div className="container">
                 <div className="row">
                     <div className="col-10 offset-1">
-                        <h1>Hello!</h1>
+                        <Header/>
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col-10 offset-1">
+                        <Home/>
                     </div>
                 </div>
             </div>
