@@ -19,7 +19,7 @@ class App extends React.Component {
     onChangeLinkName(newName) {
         this.setState({
             homeLink: newName
-        })
+        });
     }
 
     render() {
@@ -33,7 +33,11 @@ class App extends React.Component {
                 <br/>
                 <div className="row">
                     <div className="col-10 offset-1">
-                        <Home name={"Nghĩa"} initialAge={21} greet={this.onGreet} changeLink={this.onChangeLinkName.bind(this)}/>
+                        <Home name={"Nghĩa"} 
+                            initialAge={21} 
+                            greet={this.onGreet} 
+                            changeLink={this.onChangeLinkName.bind(this)}
+                            initialLinkName={this.state.homeLink}/>
                     </div>
                 </div>
             </div>
