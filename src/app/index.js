@@ -8,7 +8,8 @@ class App extends React.Component {
     constructor() {
         super();
         this.state = {
-            homeLink: 'Home'
+            homeLink: 'Home',
+            homeMounted: true
         };
     }
 
@@ -22,7 +23,26 @@ class App extends React.Component {
         });
     }
 
+    onChangeHomeMounted() {
+        this.setState({
+            homeMounted: !this.state.homeMounted
+        });
+    }
+
     render() {
+        let homeCmd = '';
+
+        if (this.state.homeMounted) {
+            homeCmd = (
+                <Home name={"Nghĩa"} 
+                    initialAge={21} 
+                    greet={this.onGreet} 
+                    changeLink={this.onChangeLinkName.bind(this)}
+                    initialLinkName={this.state.homeLink}
+                />
+            );
+        }
+
         return (
             <div className="container">
                 <div className="row">
@@ -33,11 +53,12 @@ class App extends React.Component {
                 <br/>
                 <div className="row">
                     <div className="col-10 offset-1">
-                        <Home name={"Nghĩa"} 
-                            initialAge={21} 
-                            greet={this.onGreet} 
-                            changeLink={this.onChangeLinkName.bind(this)}
-                            initialLinkName={this.state.homeLink}/>
+                        {homeCmd}
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col-10 offset-1">
+                        <button onClick={this.onChangeHomeMounted.bind(this)} className="btn btn-primary">(Un)Mount Home Component</button>
                     </div>
                 </div>
             </div>
